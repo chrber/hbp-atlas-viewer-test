@@ -5,7 +5,17 @@ OneData (here: http://155.210.198.204/) or dCache  (here: http://155.210.198.214
 
 The tests make use https://angular.github.io/protractor. Please install it first as stated on the webpage.
 
-If installed you should have a command called protractor on your command line. You can then proceed to execute the tests on the two different endpoints:
+If installed you should have a command called protractor on your command line. Now, clone the repository:
+
+```
+git clone https://github.com/chrber/hbp-atlas-viewer-test.git
+```
+cd into the atlas-viewer directory:
+```
+cd atlas-viewer
+```
+
+You can then proceed to execute the tests on the two different endpoints:
 
 ```
 $ protractor conf.js --baseUrl="http://155.210.198.204/" --capabilities.count=2 --params.numberOfZooms=2
