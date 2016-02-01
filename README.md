@@ -34,5 +34,5 @@ There are paramters that have to be set:
 
 The other parameters are optional:
 
-    --capabilities.count=<Integer Number>  ...  Number of browsers to be instanticated
-    --params.numberOfZooms=<Integer Number>  ... Number of zooms to be performed. There will always be n number of zooms out followed by the same amount of zooms in 
+    --capabilities.count=<Integer Number>  ...  Number of browsers to be instanticated (default: 1)
+    --params.numberOfZooms=<Integer Number>  ... Number of zooms to be performed (default: 3). There will always be n number of zooms out followed by the same amount of zooms in 
