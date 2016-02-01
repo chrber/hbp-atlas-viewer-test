@@ -1,5 +1,10 @@
+// protractor-perf not working: TypeError: Cannot read property 'params' of undefined
+// var ProtractorPerf = require('protractor-perf');
+
 describe('Atlas Viewer', function() {
-		
+
+	//var perf = new ProtractorPerf(protractor); // Initialize the perf runner
+
 	it('should have a title', function() {
 		// the baseUrl need to be given calling this test
 		// protractor conf.js --baseUrl="http://155.210.198.214/" --capabilities.count=2
@@ -29,6 +34,7 @@ describe('Atlas Viewer', function() {
 	});
 	
 	it('should zoom out', function() {
+		//perf.start(); // Start measuring the metrics
 		var zoomOutButton = element(by.css('.olControlZoomOut.olButton'));
 		expect(zoomOutButton.getText()).toEqual('−');
 		var numberOfZooms = browser.params.numberOfZooms
@@ -46,5 +52,7 @@ describe('Atlas Viewer', function() {
 			zoomInButton.click();
 			browser.sleep(1000);
 		}
+		// console.log(perf.getStats())
+		//perf.stop(); // Stop measuring the metrics
 	});
 });
