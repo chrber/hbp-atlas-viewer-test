@@ -3,16 +3,20 @@
 These tests are created to minimally test the Atlas Viewer application of the Human Brain project which have 
 OneData (here: http://155.210.198.204/) or dCache  (here: http://155.210.198.214/) as a backend storage.
 
-The tests make use https://angular.github.io/protractor. Please install it first as stated on the webpage.
+The tests make use of https://angular.github.io/protractor. Please install it first as stated on the webpage. Then start the webdriver manager:
+```
+$ webdriver-manager update
+$ webdriver-manager start
+```
 
 If installed you should have a command called protractor on your command line. Now, clone the repository:
 
 ```
-git clone https://github.com/chrber/hbp-atlas-viewer-test.git
+$ git clone https://github.com/chrber/hbp-atlas-viewer-test.git
 ```
 cd into the atlas-viewer directory:
 ```
-cd atlas-viewer
+$ cd atlas-viewer
 ```
 
 You can then proceed to execute the tests on the two different endpoints:
