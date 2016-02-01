@@ -1,7 +1,7 @@
 exports.config = {
   capabilities: {
     browserName: 'chrome',
-	//count: 2
+	count: 1
   },
   framework: 'jasmine',
   seleniumAddress: 'http://localhost:4444/wd/hub',

@@ -1,14 +1,16 @@
 describe('Atlas Viewer', function() {
 		
 	it('should have a title', function() {
-		browser.get('http://155.210.198.214/');
+		// the baseUrl need to be given calling this test
+		// protractor conf.js --baseUrl="http://155.210.198.214/" --capabilities.count=2
+		browser.get("/");
 		
 		expect(browser.getTitle()).toEqual('Atlas Viewer');	
 	});
 	
 	it('should switch to Human brain image', function() {
 			
-		browser.get('http://155.210.198.214/');
+		browser.get("/");
 		
 		// for debugging this can be used
 		//browser.pause();
@@ -21,10 +23,28 @@ describe('Atlas Viewer', function() {
 		expect(secondOption.getText()).toEqual('BigBrain, FZJ');
 		secondOption.click();
 			
-		browser.sleep(5000)
+		browser.sleep(2000);
 		 
-		expect(element(by.id('sampleSelector')).$('option:checked').getText()).toEqual('BigBrain, FZJ') 
+		expect(element(by.id('sampleSelector')).$('option:checked').getText()).toEqual('BigBrain, FZJ');
 	});
 	
+	it('should zoom out', function() {
+		var zoomOutButton = element(by.css('.olControlZoomOut.olButton'));
+		expect(zoomOutButton.getText()).toEqual('−');
+		var numberOfZooms = browser.params.numberOfZooms
+		for (var i = 0; i < numberOfZooms; ++i) {
+			zoomOutButton.click();
+			browser.sleep(1000);
+		}
+	});
 	
+	it('should zoom out', function() {
+		var zoomInButton = element(by.css('.olControlZoomIn.olButton'));
+		expect(zoomInButton.getText()).toEqual('+');
+		var numberOfZooms = browser.params.numberOfZooms
+		for (var i = 0; i < numberOfZooms; ++i) {
+			zoomInButton.click();
+			browser.sleep(1000);
+		}
+	});
 });
