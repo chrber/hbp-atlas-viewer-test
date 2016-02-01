@@ -26,7 +26,7 @@ $ protractor conf.js --baseUrl="http://155.210.198.214/" --capabilities.count=2 
 ```
 There are paramters that have to be set:
 
---baseUrl=<Base URL>  ...  Endpoint to be tested
+    --baseUrl=<Base URL>  ...  Endpoint to be tested
 
 The other parameters are optional:
 
