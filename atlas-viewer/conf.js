@@ -3,6 +3,9 @@ exports.config = {
     browserName: 'chrome',
 	count: 1
   },
+  params: {
+	  numberOfZooms: 3
+  },
   framework: 'jasmine',
   seleniumAddress: 'http://localhost:4444/wd/hub',
   specs: ['spec.js']
