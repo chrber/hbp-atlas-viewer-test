@@ -7,10 +7,13 @@ The tests make use https://angular.github.io/protractor. Please install it first
 
 If installed you should have a command called protractor on your command line. You can then proceed to execute the tests on the two different endpoints:
 
+```
 $ protractor conf.js --baseUrl="http://155.210.198.204/" --capabilities.count=2 --params.numberOfZooms=2
+```
 
+```
 $ protractor conf.js --baseUrl="http://155.210.198.214/" --capabilities.count=2 --params.numberOfZooms=2
-
+```
 There are paramters that have to be set:
 
 --baseUrl=<Base URL>  ...  Endpoint to be tested
