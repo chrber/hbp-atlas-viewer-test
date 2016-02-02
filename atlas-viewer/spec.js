@@ -38,7 +38,7 @@ describe('Atlas Viewer', function() {
 	});
 	
 	it('should zoom out', function() {
-		perfRunner.start(); // Start measuring the metrics
+
 
 		var zoomOutButton = element(by.css('.olControlZoomOut.olButton'));
 		expect(zoomOutButton.getText()).toEqual('−');
@@ -49,18 +49,28 @@ describe('Atlas Viewer', function() {
 			numberOfTilesBeforeZoom=count;
 		});
 
+		perfRunner.start(); // Start measuring the metrics
+
 		for (var i = 0; i < numberOfZooms; ++i) {
 			zoomOutButton.click();
 			browser.sleep(1000);
 		}
 
+		perfRunner.stop().then(function(data) {
+			console.log("Performance data of zoom out:\n")
+			console.log(data);
+		}); // Stop measuring the metrics
+
 		element.all(by.className('olTileImage')).count().then(function(count) {
 			numberOfTilesAfterZoom=count;
 			expect(numberOfTilesBeforeZoom).toBeGreaterThan(numberOfTilesAfterZoom);
 		});
+
+
 	});
 	
 	it('should zoom in', function() {
+
 		var zoomInButton = element(by.css('.olControlZoomIn.olButton'));
 		expect(zoomInButton.getText()).toEqual('+');
 		var numberOfZooms = browser.params.numberOfZooms
@@ -69,10 +79,15 @@ describe('Atlas Viewer', function() {
 			numberOfTilesBeforeZoom=count;
 		});
 
+		perfRunner.start();
 		for (var i = 0; i < numberOfZooms; ++i) {
 			zoomInButton.click();
 			browser.sleep(1000);
 		}
+		perfRunner.stop().then(function(data) {
+			console.log("Performance data of zoom in:\n")
+			console.log(data);
+		}); // Stop measuring the metrics
 
 		element.all(by.className('olTileImage')).count().then(function(count) {
 			numberOfTilesAfterZoom=count;
@@ -80,8 +95,8 @@ describe('Atlas Viewer', function() {
 		});
 		// This part is not working
 		//console.log(perfRunner.getStats())
-		perfRunner.stop().then(function(data) {
-			console.log(data);
-		}); // Stop measuring the metrics
+
+		browser.pause();
+
 	});
 });
