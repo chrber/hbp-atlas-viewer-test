@@ -3,7 +3,7 @@
 These tests are created to minimally test the Atlas Viewer application of the Human Brain project which have 
 OneData (here: http://155.210.198.204/) or dCache  (here: http://155.210.198.214/) as a backend storage.
 
-The tests make use of https://angular.github.io/protractor. Please install it first as stated on the webpage. Then start the webdriver manager:
+The tests make use of https://angular.github.io/protractor. Please install it first as stated on the webpage (https://angular.github.io/protractor/#/tutorial). Then start the webdriver manager:
 ```
 $ webdriver-manager update
 $ webdriver-manager start
