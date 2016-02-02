@@ -1,9 +1,11 @@
+#!/usr/bin/env node
+
 //This part is working now
-//var ProtractorPerf = require('protractor-perf');
+var ProtractorPerf = require('protractor-perf');
 
 describe('Atlas Viewer', function() {
 
-	//var perfRunner = new ProtractorPerf(protractor, browser);
+	var perfRunner = new ProtractorPerf(protractor, browser);
 	var numberOfTilesBeforeZoom;
 	var numberOfTilesAfterZoom;
 
@@ -36,7 +38,8 @@ describe('Atlas Viewer', function() {
 	});
 	
 	it('should zoom out', function() {
-		//perfRunner.start(); // Start measuring the metrics
+		perfRunner.start(); // Start measuring the metrics
+
 		var zoomOutButton = element(by.css('.olControlZoomOut.olButton'));
 		expect(zoomOutButton.getText()).toEqual('−');
 
@@ -76,7 +79,9 @@ describe('Atlas Viewer', function() {
 			expect(numberOfTilesBeforeZoom).toBeLessThan(numberOfTilesAfterZoom);
 		});
 		// This part is not working
-		//console.log(perfRunner.getStats('meanFrameTime'))
-		//perfRunner.stop(); // Stop measuring the metrics
+		//console.log(perfRunner.getStats())
+		perfRunner.stop().then(function(data) {
+			console.log(data);
+		}); // Stop measuring the metrics
 	});
 });
