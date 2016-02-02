@@ -4,6 +4,8 @@
 describe('Atlas Viewer', function() {
 
 	//var perfRunner = new ProtractorPerf(protractor, browser);
+	var numberOfTilesBeforeZoom;
+	var numberOfTilesAfterZoom;
 
 	it('should have a title', function() {
 		// the baseUrl need to be given calling this test
@@ -12,9 +14,9 @@ describe('Atlas Viewer', function() {
 		
 		expect(browser.getTitle()).toEqual('Atlas Viewer');	
 	});
-	
+
 	it('should switch to Human brain image', function() {
-			
+
 		browser.get("/");
 		
 		// for debugging this can be used
@@ -37,21 +39,42 @@ describe('Atlas Viewer', function() {
 		//perfRunner.start(); // Start measuring the metrics
 		var zoomOutButton = element(by.css('.olControlZoomOut.olButton'));
 		expect(zoomOutButton.getText()).toEqual('−');
+
 		var numberOfZooms = browser.params.numberOfZooms
+
+		element.all(by.className('olTileImage')).count().then(function(count) {
+			numberOfTilesBeforeZoom=count;
+		});
+
 		for (var i = 0; i < numberOfZooms; ++i) {
 			zoomOutButton.click();
 			browser.sleep(1000);
 		}
+
+		element.all(by.className('olTileImage')).count().then(function(count) {
+			numberOfTilesAfterZoom=count;
+			expect(numberOfTilesBeforeZoom).toBeGreaterThan(numberOfTilesAfterZoom);
+		});
 	});
 	
-	it('should zoom out', function() {
+	it('should zoom in', function() {
 		var zoomInButton = element(by.css('.olControlZoomIn.olButton'));
 		expect(zoomInButton.getText()).toEqual('+');
 		var numberOfZooms = browser.params.numberOfZooms
+
+		element.all(by.className('olTileImage')).count().then(function(count) {
+			numberOfTilesBeforeZoom=count;
+		});
+
 		for (var i = 0; i < numberOfZooms; ++i) {
 			zoomInButton.click();
 			browser.sleep(1000);
 		}
+
+		element.all(by.className('olTileImage')).count().then(function(count) {
+			numberOfTilesAfterZoom=count;
+			expect(numberOfTilesBeforeZoom).toBeLessThan(numberOfTilesAfterZoom);
+		});
 		// This part is not working
 		//console.log(perfRunner.getStats('meanFrameTime'))
 		//perfRunner.stop(); // Stop measuring the metrics
