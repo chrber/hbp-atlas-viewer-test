@@ -95,8 +95,5 @@ describe('Atlas Viewer', function() {
 		});
 		// This part is not working
 		//console.log(perfRunner.getStats())
-
-		browser.pause();
-
 	});
 });
