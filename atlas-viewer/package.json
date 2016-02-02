@@ -1,0 +1,11 @@
+{
+  "name": "atlas-viewer-tests",
+  "description": "A package comprised of tests against HBP image viewer",
+  "author": "Christian Bernardt <christian.bernardt@desy.de",
+  "license": "Apache 2.0",
+  "dependencies": {
+      "protractor-perf": "0.2.1",
+      "protractor": "~3.0.0"
+  },
+  "engine": "node >= 3.3.12"
+}
