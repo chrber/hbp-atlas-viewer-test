@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-//This part is working now
+// Protractor api: https://angular.github.io/protractor/#/api
+// Protractor-perf metrics description: https://github.com/axemclion/browser-perf/wiki/Metrics
 var ProtractorPerf = require('protractor-perf');
 
 describe('Atlas Viewer', function() {
