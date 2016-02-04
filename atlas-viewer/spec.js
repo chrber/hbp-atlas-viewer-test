@@ -19,8 +19,6 @@ describe('Atlas Viewer', function() {
 	});
 
 	it('should switch to Human brain image', function() {
-
-		browser.get("/");
 		
 		// for debugging this can be used
 		//browser.pause();
