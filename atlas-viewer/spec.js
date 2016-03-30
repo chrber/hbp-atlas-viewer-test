@@ -24,16 +24,16 @@ describe('Atlas Viewer', function() {
 		//browser.pause();
 		
 		var allOptions = element.all(by.options('stack.type group by stack.species for stack in stacks'));
-		expect(allOptions.count()).toEqual(2);
+		expect(allOptions.count()).toEqual(7);
 		var firstOption = allOptions.first();
-		expect(firstOption.getText()).toEqual('Waxholm Rat, UiO');
-		var secondOption = allOptions.get(1);
-		expect(secondOption.getText()).toEqual('BigBrain, FZJ');
+		expect(firstOption.getText()).toEqual('Rat Golgi-Cox Stained, BCCBP');
+		var secondOption = allOptions.get(4);
+		expect(secondOption.getText()).toEqual('BigBrain');
 		secondOption.click();
 			
 		browser.sleep(2000);
 		 
-		expect(element(by.id('sampleSelector')).$('option:checked').getText()).toEqual('BigBrain, FZJ');
+		expect(element(by.id('sampleSelector')).$('option:checked').getText()).toEqual('BigBrain');
 	});
 	
 	it('should zoom out', function() {
